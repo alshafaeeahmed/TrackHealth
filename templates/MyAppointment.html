@@ -1,0 +1,56 @@
+{% extends 'patient_base.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+  </style>
+</head>
+
+<!DOCTYPE html>
+<html>
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<body>
+
+<h2 style="text-align:center;">My Appointments</h2>
+
+      <thead>
+        <tr>
+
+          <th>Name</th>
+          <th>Date</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+ {%for p in appointment%}
+<table style="width:100%">
+      </thead>
+      <tr>
+        <td> {{p.name}}</td>
+        <td>{{p.date}}</td>
+        <td>{{p.time}}</td>
+      </tr>
+</table>
+    {% endfor %}
+</body>
+</html>
+{% endblock content %}

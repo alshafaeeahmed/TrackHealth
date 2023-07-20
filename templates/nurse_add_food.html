@@ -1,0 +1,74 @@
+{% extends 'nurse_base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<head>
+    <!--    stile-->
+    <style media="screen">
+    input[type=text], select,input[type=number] ,input[type=file] ,textarea,input[type=date]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+<!--submit-->
+  input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+
+
+
+    </style>
+
+
+</head>
+
+<br><br><br><br><br>
+<h3 style="text-align:center;">ADD NEW FOOD</h3>
+<div>
+    <form method="post" autocomplete="off" enctype="multipart/form-data" style="margin-left:200px;margin-right:200px;">
+        {% csrf_token %}
+
+        <label for="Name">Food Name</label>
+        <input type="text" name="Name" value="" required>
+
+        <label for="num">Many in day </label>
+        <input type="number" name="num" id="number" value="" required>
+
+        <label for="max_Cholesterol">Max Cholesterol:</label>
+        <input type="number" name="max_Cholesterol" value="" required>
+
+        <label for="max_Liver_function">Max Liver Function:</label>
+        <input type="number" name="max_Liver_function" value="" required>
+
+        <label for="max_Kidney_function">Max Kidney Function</label>
+        <input type="number" name="max_Kidney_function" value="" required>
+
+        <label for="max_Blood_Pressure">Max Blood Pressure</label>
+        <input type="number" name="max_Blood_Pressure" value="" required>
+
+
+        <label for="pic">Image</label>
+        <input type="file" name="pic" id="pic" required value="">
+
+
+            <input type="submit" value="Add">
+    </form>
+</div>
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock content %}

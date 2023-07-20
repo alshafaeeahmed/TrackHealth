@@ -1,0 +1,68 @@
+{% extends 'admin_base.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+  </style>
+</head>
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title">Patients</h6>
+    </div>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+
+          <th>Name</th>
+          <th>Age</th>
+          <th>Profile Picture</th>
+          <th>Address</th>
+          <th>Blood Pressure</th>
+          <th>Urine Surgery</th>
+          <th>Fats</th>
+          <th>Cholesterol</th>
+          <th>Liver Function</th>
+          <th>Kidney Function</th>
+          <th>Gender</th>
+          <th>Medication</th>
+          
+        </tr>
+      </thead>
+
+      {% for d in patients %}
+
+        <td> {{d.user}}</td>
+        <td>{{d.age}}</td>
+        <td> <img src="{% static d.profile_pic.url %}" alt="Profile Pic" height="40px" width="40px" /></td>
+        <td>{{d.address}}</td>
+        <td>{{d.Blood_Pressure}}</td>
+        <td>{{d.Urine_surgery}}</td>
+        <td>{{d.Fats}}</td>
+        <td>{{d.Cholesterol}}</td>
+        <td>{{d.Liver_function}}</td>
+        <td>{{d.Kidney_function}}</td>
+        <td>{{d.gender}}</td>
+        <td><a class="btn btn-success btn-sm" href="{% url 'admin-add-medication' d.user_id  %}"><span class="fa fa-edit"></span></a></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+{% endblock content %}

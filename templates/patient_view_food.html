@@ -1,0 +1,63 @@
+{% extends 'patient_base.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+  </style>
+</head>
+
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title">Food</h6>
+    </div>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+
+          <th>Name</th>
+          <th>Many in day</th>
+          <th>Max Cholesterol</th>
+          <th>Max Liver Function</th>
+          <th>Max Kidney Function</th>
+          <th>Max Blood Pressure</th>
+          <th>Image</th>
+          <th>Add to food list</th>
+        </tr>
+      </thead>
+      {% for f in food %}
+
+      <tr>
+
+        <td> {{f.Name}}</td>
+        <td> {{f.number}}</td>
+        <td> {{f.max_Cholesterol}}</td>
+        <td> {{f.max_Liver_function}}</td>
+        <td> {{f.max_Kidney_function}}</td>
+        <td> {{f.max_Blood_Pressure}}</td>
+        <td> <img src="{% static f.pic.url %}" alt="Profile Pic" height="40px" width="40px" /></td>
+        <div class="container" align ="center">
+          <td><a class="btn info" href="{% url 'food-favorite' f.Name %}"><span class="glyphicon glyphicon-circle-arrow-up"></span></a></td>
+</div>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+{% endblock content %}
